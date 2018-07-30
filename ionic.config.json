@@ -1,0 +1,7 @@
+{
+  "name": "Schedule-Builder",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

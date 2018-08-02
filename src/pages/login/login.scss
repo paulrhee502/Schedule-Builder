@@ -1,0 +1,16 @@
+page-login{
+    ion-content{
+        text-align: center;
+        .title{
+            color: white;
+            text-align: center;
+            font-size: 3.5em;
+            padding: 2em;
+        }
+        .text-input-md{
+            font-size: 1.5em;
+            color: gray;
+            background-color: white;
+        }
+    }
+}

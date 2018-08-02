@@ -1,0 +1,29 @@
+<ion-header>
+    <ion-navbar>
+      <ion-title>
+        Registration
+      </ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content padding>
+    <div class = "title">
+        Sign up
+    </div>
+    <ion-item>
+        <ion-label stacked>Username</ion-label>
+        <ion-input [(ngModel)] = "username"></ion-input>
+    </ion-item>
+    <br>
+    <ion-item>
+        <ion-label stacked>Password</ion-label>
+        <ion-input type="password" [(ngModel)] = "password"></ion-input>
+    </ion-item>
+    <br>
+    <ion-item>
+      <ion-label stacked>Confirm Password</ion-label>
+      <ion-input type="password" [(ngModel)] = "passwordConfirm"></ion-input>
+    </ion-item>
+    <button ion-button (click) = "register()" full>Log In </button>
+  </ion-content>
+  

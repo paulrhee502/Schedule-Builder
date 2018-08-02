@@ -1,0 +1,25 @@
+<ion-header>
+    <ion-navbar>
+      <ion-title>
+        Login
+      </ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content padding>
+    <div class = "title">
+        Sign in
+    </div>
+    <ion-item>
+        <ion-label stacked>Username</ion-label>
+        <ion-input [(ngModel)] = "username"></ion-input>
+    </ion-item>
+    <br>
+    <ion-item>
+        <ion-label stacked>Password</ion-label>
+        <ion-input type="password" [(ngModel)] = "password"></ion-input>
+    </ion-item>
+    <p style="color:white; padding: 1em" (click) = "navigateToRegistration()"><u>Don't have an account? Click here to register!</u></p>
+    <button ion-button (click) = "login()" full>Log In </button>
+  </ion-content>
+  

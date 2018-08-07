@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { Http } from '../../../node_modules/@angular/http';
+import { HomePage } from '../home/home';
 
 /**
  * Generated class for the RegistrationPage page.
@@ -21,18 +22,34 @@ export class RegistrationPage {
   constructor(public navCtrl: NavController, public alertCtrl: AlertController, public http: Http) {
   }
 
-  //TODO: error messages
   register(){
-    this.http.post('http://localhost:8080/users/', {
+    if(this.password == this.passwordConfirm){
+      this.http.post('http://localhost:8080/users/', {
       username: this.username,
       password: this.password
     }).subscribe(
       result => {
-        console.log("success");
+        console.log("Token: ", result._body);
+        this.navCtrl.setRoot(HomePage);
       },
       error => {
-        console.log(error);
+        console.log("Error: ", error);
+        let alert = this.alertCtrl.create({
+          title: "Registration Error",
+          subTitle: error._body,
+          buttons: ["Dismiss"]
+        })
+        alert.present();
       }
     )
+    }
+    else{
+      let alert = this.alertCtrl.create({
+        title: "Error",
+        subTitle: "Passwords do not match.",
+        buttons: ["Dismiss"]
+      })
+      alert.present();
+    }
   }
 }

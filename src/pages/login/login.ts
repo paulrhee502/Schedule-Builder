@@ -17,6 +17,11 @@ export class LoginPage {
     public storage: Storage,
     public http: Http,
     public alertCtrl: AlertController) {
+      this.storage.get('jwt').then((token) => {
+        if(token){
+          this.navCtrl.setRoot(HomePage);
+        }
+      })
   }
 
   navigateToRegistration(){

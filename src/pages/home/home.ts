@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { CourseListPage } from '../course-list/course-list';
+import { Http } from '../../../node_modules/@angular/http';
 
 /**
  * Generated class for the HomePage page.
@@ -16,7 +18,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class HomePage {
   public times = [];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http) {
     this.times = [
       "8:00", "8:05", "8:10", "8:15", "8:20", "8:25", "8:30", "8:35", "8:40", "8:45", "8:50", "8:55",
       "9:00", "9:05", "9:10", "9:15", "9:20", "9:25", "9:30", "9:35", "9:40", "9:45", "9:50", "9:55",
@@ -34,9 +36,11 @@ export class HomePage {
       "9:00", "9:05", "9:10", "9:15", "9:20", "9:25", "9:30", "9:35", "9:40", "9:45", "9:50", "9:55",
     ]
   }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad HomePage');
+  openCourseList(){
+    this.http.get('http://localhost:8080/courses/all').subscribe((result) => {
+      this.navCtrl.push(CourseListPage, {courseList: result._body});
+    }, error => {
+      console.log(error);
+    })
   }
-
 }

@@ -7,9 +7,17 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Home</ion-title>
+    <ion-buttons start>
+      <button ion-button icon-only (click) = "openCourseList()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-buttons end>
+        <button ion-button icon-only (click) = "showInfo()">
+          <ion-icon name="ios-information-circle-outline"></ion-icon>
+        </button>
+    </ion-buttons>
   </ion-navbar>
-
 </ion-header>
 
 
@@ -38,7 +46,7 @@
   <div class = "schedule">
     <ion-row *ngFor = "let t of times">
       <ion-col *ngIf="t.substring(t.length-2) == '00' || t.substring(t.length-2) == '30'" style="border-right: 1px solid gray; font-size: 1.2em">{{t}}</ion-col>
-      <ion-col *ngIf="t.substring(t.length-2) != '00' && t.substring(t.length-2) != '30'" style="color: white; border-right: 1px solid gray">{{t}}</ion-col>
+      <ion-col *ngIf="t.substring(t.length-2) != '00' && t.substring(t.length-2) != '30'" style="color: whitesmoke; border-right: 1px solid gray">{{t}}</ion-col>
       <ion-col style="border-right: 1px lightgray solid"></ion-col>
       <ion-col style="border-right: 1px lightgray solid"></ion-col>
       <ion-col style="border-right: 1px lightgray solid"></ion-col>

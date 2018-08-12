@@ -1,0 +1,28 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Add Courses</ion-title>
+    <ion-buttons end>
+        <button ion-button icon-only (click) = "openCourseList()">
+          <ion-icon name="add"></ion-icon>
+        </button>
+      </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="alpha-list-page" style ="color: black">
+    <ion-alpha-scroll
+      [listData]="courses"
+      key= 'subject'
+      [itemTemplate]="alphaScrollItemTemplateRef"
+      [currentPageClass]="currentPageClass"
+      [triggerChange]="triggerAlphaScrollChange">
+
+        <ng-template #alphaScrollItemTemplateRef let-item>
+          <ion-item (click)="currentPageClass.onItemClick(item)">{{item.subject}}</ion-item>
+        </ng-template>
+
+    </ion-alpha-scroll>
+  </ion-content>

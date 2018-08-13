@@ -1,0 +1,57 @@
+<!--
+  Generated template for the HomePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-buttons start>
+      <button ion-button icon-only (click) = "openCourseList()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-buttons end>
+        <button ion-button icon-only (click) = "showInfo()">
+          <ion-icon name="ios-information-circle-outline"></ion-icon>
+        </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <h1>Schedule</h1>
+  <div class = "header">
+    <ion-row>
+      <ion-col></ion-col>
+      <ion-col>
+        <b>M</b>
+      </ion-col>
+      <ion-col>
+        <b>T</b>
+      </ion-col>
+      <ion-col>
+        <b>W</b>
+      </ion-col>
+      <ion-col>
+        <b>Th</b>
+      </ion-col>
+      <ion-col>
+        <b>F</b>
+      </ion-col>
+    </ion-row>
+  </div>
+  <div class = "schedule">
+    <ion-row *ngFor = "let t of times">
+      <ion-col *ngIf="t.substring(t.length-2) == '00' || t.substring(t.length-2) == '30'" style="border-right: 1px solid gray; font-size: 1.2em">{{t}}</ion-col>
+      <ion-col *ngIf="t.substring(t.length-2) != '00' && t.substring(t.length-2) != '30'" style="color: whitesmoke; border-right: 1px solid gray">{{t}}</ion-col>
+      <ion-col style="border-right: 1px lightgray solid"></ion-col>
+      <ion-col style="border-right: 1px lightgray solid"></ion-col>
+      <ion-col style="border-right: 1px lightgray solid"></ion-col>
+      <ion-col style="border-right: 1px lightgray solid"></ion-col>
+      <ion-col></ion-col>
+    </ion-row>
+  </div>
+</ion-content>

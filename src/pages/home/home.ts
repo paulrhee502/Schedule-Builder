@@ -35,6 +35,14 @@ export class HomePage {
     }
   }
   
+  openCourseList(){
+    this.http.get('http://localhost:8080/courses/all').subscribe((result) => {
+      this.navCtrl.push(CourseListPage, {courseList: result._body});
+    }, error => {
+      console.log(error);
+    })
+  }
+
   buildSchedule(){
     let scheduleArray = [];
     for(let i = 0; i < this.addedCourses.length; i++){

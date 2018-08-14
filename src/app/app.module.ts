@@ -15,6 +15,7 @@ import { CourseListPage } from '../pages/course-list/course-list';
 import { CoursesBySubjectPage } from '../pages/courses-by-subject/courses-by-subject';
 import { CoursePage } from '../pages/course/course';
 import { SchedulePage } from '../pages/schedule/schedule';
+import { BreakPage } from '../pages/break/break';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { SchedulePage } from '../pages/schedule/schedule';
     CourseListPage,
     CoursesBySubjectPage,
     CoursePage,
-    SchedulePage
+    SchedulePage,
+    BreakPage
   ],
   imports: [
     BrowserModule,
@@ -44,7 +46,8 @@ import { SchedulePage } from '../pages/schedule/schedule';
     CourseListPage,
     CoursesBySubjectPage,
     CoursePage,
-    SchedulePage
+    SchedulePage,
+    BreakPage
   ],
   providers: [
     StatusBar,

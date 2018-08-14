@@ -29,11 +29,4 @@ export class SchedulePage {
       "9:00", "9:05", "9:10", "9:15", "9:20", "9:25", "9:30", "9:35", "9:40", "9:45", "9:50", "9:55",
     ]
   }
-  openCourseList(){
-    this.http.get('http://localhost:8080/courses/all').subscribe((result) => {
-      this.navCtrl.push(CourseListPage, {courseList: result._body});
-    }, error => {
-      console.log(error);
-    })
-  }
 }

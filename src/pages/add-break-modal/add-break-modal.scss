@@ -1,0 +1,24 @@
+page-add-break-modal {
+    h1{
+        text-align: center;
+        color: #001A57;
+        padding: 1rem;
+    }
+    .content{
+        position: absolute;
+        top: 20%;
+        left: 20%;
+        display: block;
+        width: 60%;
+        height: 60%;
+        border: 2px;
+    }
+    .scroll-content{
+        background-color: whitesmoke;
+    }
+    .button-round-ios{
+        padding: 0 2.5rem;
+        height: 3.5em;
+        width: 3.5em;
+    }
+}

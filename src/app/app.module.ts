@@ -16,6 +16,7 @@ import { CoursesBySubjectPage } from '../pages/courses-by-subject/courses-by-sub
 import { CoursePage } from '../pages/course/course';
 import { SchedulePage } from '../pages/schedule/schedule';
 import { BreakPage } from '../pages/break/break';
+import { AddBreakModalPage } from '../pages/add-break-modal/add-break-modal';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { BreakPage } from '../pages/break/break';
     CoursesBySubjectPage,
     CoursePage,
     SchedulePage,
-    BreakPage
+    BreakPage,
+    AddBreakModalPage
   ],
   imports: [
     BrowserModule,
@@ -47,7 +49,8 @@ import { BreakPage } from '../pages/break/break';
     CoursesBySubjectPage,
     CoursePage,
     SchedulePage,
-    BreakPage
+    BreakPage,
+    AddBreakModalPage
   ],
   providers: [
     StatusBar,

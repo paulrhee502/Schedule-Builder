@@ -1,0 +1,26 @@
+<ion-content padding>
+    <ion-buttons end style="float: right">
+        <button ion-button icon-only (click)="closeModal()">
+          <ion-icon name="close"></ion-icon>
+        </button>
+      </ion-buttons>
+  <h1>Add Break</h1>
+  <div>
+    <button ion-button round outline (click) = "toggleColor(0)" [style.background-color] = "colorArray[0]">M</button>
+    <button ion-button round outline (click) = "toggleColor(1)" [style.background-color] = "colorArray[1]">Tu</button>
+    <button ion-button round outline (click) = "toggleColor(2)" [style.background-color] = "colorArray[2]">W</button>
+    <button ion-button round outline (click) = "toggleColor(3)" [style.background-color] = "colorArray[3]">Th</button>
+    <button ion-button round outline (click) = "toggleColor(4)" [style.background-color] = "colorArray[4]">F</button>
+  </div>
+  <br>
+  <ion-item>
+    <ion-label>Start Time</ion-label>
+    <ion-datetime displayFormat="H:mm" hourValues = "8,9,10,11,12,13,14,15,16,17,18,19,20,21" minuteValues = "0,5,10,15,20,25,30,35,40,45,50,55" [(ngModel)] = "newBreakStartTime"></ion-datetime>
+  </ion-item>
+  <ion-item>
+    <ion-label>End Time</ion-label>
+    <ion-datetime displayFormat="H:mm" hourValues = "8,9,10,11,12,13,14,15,16,17,18,19,20,21" minuteValues = "0,5,10,15,20,25,30,35,40,45,50,55" [(ngModel)] = "newBreakEndTime"></ion-datetime>
+  </ion-item>
+  <br>
+  <button ion-button full (click) = "addBreak()">Add Break</button>
+</ion-content>

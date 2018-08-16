@@ -17,7 +17,7 @@ import { Storage } from '../../../node_modules/@ionic/storage';
 })
 export class CoursePage {
   public course;
-  public itemExpandHeight = [230, 340];
+  public itemExpandHeight = [];
   constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController, public alertCtrl: AlertController, public http: Http, public storage: Storage) {
     this.course = this.navParams.get('course');
     this.course.sections.forEach((section) => {
@@ -147,7 +147,11 @@ export class CoursePage {
                 }
                 else if(discussion == "any"){
                   let sectionAnyDiscussions = {
-                    courseID: this.course._id,
+                    courseName: this.course.name,
+                    courseSubject: this.course.subject,
+                    courseLevel: this.course.level,
+                    courseCredits: this.course.credits,
+                    number: data.number, 
                     timeStart: data.timeStart,
                     timeEnd: data.timeEnd,
                     discussions: []
@@ -155,6 +159,7 @@ export class CoursePage {
                   data.discussions.forEach((d) => {
                     sectionAnyDiscussions.discussions.push(
                       {
+                        number: d.number,
                         timeStart: d.timeStart,
                         timeEnd: d.timeEnd,
                         days: d.days
@@ -187,11 +192,16 @@ export class CoursePage {
                 }
                 else{
                   let section = {
-                    courseID: this.course._id,
+                    courseName: this.course.name,
+                    courseSubject: this.course.subject,
+                    courseLevel: this.course.level,
+                    courseCredits: this.course.credits, 
+                    number: data.number,
                     timeStart: data.timeStart,
                     timeEnd: data.timeEnd,
                     discussions: [
                       {
+                        number: discussion.number,
                         timeStart: discussion.timeStart,
                         timeEnd: discussion.timeEnd,
                         days: discussion.days

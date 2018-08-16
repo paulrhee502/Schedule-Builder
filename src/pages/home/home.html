@@ -8,14 +8,14 @@
 
   <ion-navbar>
     <ion-buttons start>
-      <button ion-button icon-only (click) = "openCourseList()">
+      <button ion-button icon-only (click)="openCourseList()">
         <ion-icon name="add"></ion-icon>
       </button>
     </ion-buttons>
     <ion-buttons end>
-        <button ion-button (click) = "showInfo()">
-          Edit
-        </button>
+      <button ion-button (click)="showInfo()">
+        Edit
+      </button>
     </ion-buttons>
   </ion-navbar>
 </ion-header>
@@ -24,10 +24,48 @@
 <ion-content padding>
   <h1>Courses</h1>
   <ion-list>
-    <ion-item *ngFor = "let course of addedCourses; let i = index">
-      <ion-label>{{course.name}}</ion-label>
+    <ion-item *ngFor="let course of addedCourses; let i = index">
+      <ion-label>
+        <h2>
+          {{course.subject}} {{course.level}}
+        </h2>
+        <h3>
+          {{course.name}}
+        </h3>
+      </ion-label>
       <ion-checkbox [(ngModel)]="selectedCourses[i]"></ion-checkbox>
     </ion-item>
+    <ion-item *ngFor="let section of addedSections; let i = index">
+      <ion-label>
+        <h2>
+          {{section.courseSubject}} {{section.courseLevel}}
+        </h2>
+        <h3>
+          {{section.courseName}}
+        </h3>
+        <h2>
+          Section {{section.number}}
+        </h2>
+        <h4>
+          {{section.days}} {{section.timeStart}}-{{section.timeEnd}}
+        </h4>
+        <div *ngIf = "section.discussions.length == 1">
+          <h2>
+            Discussion {{section.discussions[0].number}}
+          </h2>
+          <h4>
+            {{section.discussions[0].days}} {{section.discussions[0].timeStart}}-{{section.discussions[0].timeEnd}}
+          </h4>
+        </div>
+      </ion-label>
+      <ion-checkbox [(ngModel)]="selectedSections[i]"></ion-checkbox>
+    </ion-item>
   </ion-list>
-  <button ion-button round (click) = "buildSchedule()">Build Schedule</button>
+  <h1>Breaks</h1>
+  <ion-list>
+    <ion-item *ngFor="let break of breaks">
+      <h2>{{break.days}} {{break.timeStart}}-{{break.timeEnd}}</h2>
+    </ion-item>
+  </ion-list>
+  <button ion-button round (click)="buildSchedule()">Build Schedule</button>
 </ion-content>

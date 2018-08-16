@@ -1,9 +1,7 @@
 <ion-content padding>
-    <ion-buttons end style="float: right">
-        <button ion-button icon-only (click)="closeModal()">
-          <ion-icon name="close"></ion-icon>
+        <button ion-button icon-only outline style="float: right" (click)="closeModal()">
+          <ion-icon name="ios-close-outline"></ion-icon>
         </button>
-      </ion-buttons>
   <h1>Add Break</h1>
   <div>
     <button ion-button round outline (click) = "toggleColor(0)" [style.background-color] = "colorArray[0]">M</button>

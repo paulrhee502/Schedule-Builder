@@ -1,8 +1,9 @@
 page-add-break-modal {
+    text-align: center;
     h1{
         text-align: center;
         color: #001A57;
-        padding: 1rem;
+        clear: right;
     }
     .content{
         position: absolute;
@@ -16,7 +17,7 @@ page-add-break-modal {
     .scroll-content{
         background-color: whitesmoke;
     }
-    .button-round-ios{
+    .button-round-md, .button-round-ios{
         padding: 0 2.5rem;
         height: 3.5em;
         width: 3.5em;

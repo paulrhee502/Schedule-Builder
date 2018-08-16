@@ -7,16 +7,60 @@
 <ion-header>
 
   <ion-navbar>
+    <ion-title>Course Details</ion-title>
     <ion-buttons end>
       <button ion-button icon-only (click) = "closeModal()">
         <ion-icon name="close"></ion-icon>
       </button>
     </ion-buttons>
   </ion-navbar>
-
 </ion-header>
 
 
 <ion-content padding>
-
+  <h1>{{course.name}}</h1>
+  <h3>{{course.subject}} {{course.level}}</h3>
+  <h5>
+    Credits: <span *ngFor = "let credit of course.credits">{{credit}} </span>
+  </h5>
+  <h5>
+    Prerequisites: <div *ngFor = "let prereq of course.prereqs">{{prereq}}</div>
+  </h5>
+  <br>
+  <h4>Course description:</h4>
+  <p>{{course.description}}</p>
+  <br>
+  <h2>
+    Sections
+  </h2>
+  Click section for more info
+  <ion-list padding>
+    <button detail-none (click) = "expandItem(section)" ion-item *ngFor = "let section of course.sections; let i = index">
+      <h3><b>{{section.number}}</b></h3>
+      <h5>{{section.days}} {{section.timeStart}}-{{section.timeEnd}}</h5>
+      <expandable [expandHeight] = "itemExpandHeight[i]" [expanded] = 'section.expanded'>
+        <br>
+        <h6>Class Number: {{section.classNumber}}</h6>
+        <h6>Room: {{section.roomNum}}</h6>
+        <h6>Instructor: {{section.instructor}}</h6>
+        <div *ngIf = "section.discussions.length > 0">
+          <hr>
+          <h2><b>Discussions</b></h2>
+          <br>
+          <div *ngFor = "let discussion of section.discussions">
+            <h3>{{discussion.number}}</h3>
+            <h5>{{discussion.days}} {{discussion.timeStart}}-{{discussion.timeEnd}}</h5>
+            <h6>Class Number: {{discussion.classNumber}}</h6>
+            <h6>Room: {{discussion.roomNum}}</h6>
+            <h6>Instructor: {{discussion.instructor}}</h6>
+            <hr>
+          </div>
+        </div>
+      </expandable>
+      <button ion-button clear icon-only item-end>
+        <ion-icon name = "ios-more-outline"></ion-icon>
+      </button>
+    </button>
+  </ion-list>
+  <button ion-button full (click) = "addCourse()">Add Course to Schedule Builder</button>
 </ion-content>

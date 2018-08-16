@@ -17,6 +17,7 @@ import { CoursePage } from '../pages/course/course';
 import { SchedulePage } from '../pages/schedule/schedule';
 import { BreakPage } from '../pages/break/break';
 import { AddBreakModalPage } from '../pages/add-break-modal/add-break-modal';
+import { ExpandableComponent } from '../components/expandable/expandable';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { AddBreakModalPage } from '../pages/add-break-modal/add-break-modal';
     CoursePage,
     SchedulePage,
     BreakPage,
-    AddBreakModalPage
+    AddBreakModalPage,
+    ExpandableComponent
   ],
   imports: [
     BrowserModule,
